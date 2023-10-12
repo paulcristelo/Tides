@@ -11,7 +11,7 @@ import SwiftUI
 struct TidesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(locations: ["Cape May, NJ", "Pearl Harbor, HI", "Lewes, DE", "Sandy Hook, NJ"])
+			ContentView()
         }
 		
     }

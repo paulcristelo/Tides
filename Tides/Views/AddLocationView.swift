@@ -8,39 +8,35 @@
 import SwiftUI
 
 struct AddLocationView: View {
-	@Binding var newLocation: Location?
-	@Binding var locations: [String]
+	@Binding var savedLocations: [String]
     var body: some View {
 		
 		NavigationView {
 			ScrollView {
+				Spacer()
 				ForEach(LocationManager.shared.sortedLocations, id: \.self) { location in
 					Button(action: {
-						if let id = LocationManager.shared.all[location] {
-							newLocation = Location(name: location, id: id)
-							locations.append(newLocation!.name)
-							presentationMode.wrappedValue.dismiss()
-						}
+						savedLocations = addLocation(location: location, savedLocations: savedLocations)
+						presentationMode.wrappedValue.dismiss()
 					}) {
 						Text(location)
 					}
 				}
 				Spacer()
 			}
+			.navigationTitle("Add Location")
+			.toolbarTitleDisplayMode(.inline)
 		}
-		.navigationTitle("Add Location")
-		
 		
     }
 	@Environment(\.presentationMode) var presentationMode
 }
 
 struct AddLocationView_Previews: PreviewProvider {
-	@State static private var previewLocation: Location? = nil
 	@State static private var previewLocations: [String] = []
 
 	static var previews: some View {
-		AddLocationView(newLocation: $previewLocation, locations: $previewLocations)
+		AddLocationView(savedLocations: $previewLocations)
 	}
 }
 

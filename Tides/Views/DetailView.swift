@@ -9,16 +9,16 @@ import SwiftUI
 import Charts
 
 struct DetailView: View {
-    @ObservedObject var location: Location
+    @ObservedObject var selectedLocation: Location
 	@State private var timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
 	var body: some View {
 		VStack(alignment: .leading) {
-			Text(location.name)
+			Text(selectedLocation.name)
 				.font(.headline)
 				.accessibilityAddTraits(.isHeader)
 				.padding()
 			Spacer()
-			Chart(location.oldWaterLevels) {
+			Chart(selectedLocation.oldWaterLevels) {
 				LineMark(
 					x: .value("Time", "\($0.t)"),
 					y: .value("Water Level", Double($0.v) ?? 0)
@@ -34,13 +34,13 @@ struct DetailView: View {
 			}
 			Spacer()
 			HStack {
-				Label("\(location.id)", systemImage: "number")
+				Label("\(selectedLocation.id)", systemImage: "number")
 				Spacer()
-				if let waterLevel = location.waterLevel {
-					if location.comparedWaterLevel != nil {
-						if waterLevel > location.comparedWaterLevel! {
+				if let waterLevel = selectedLocation.waterLevel {
+					if selectedLocation.comparedWaterLevel != nil {
+						if waterLevel > selectedLocation.comparedWaterLevel! {
 							Label("\(waterLevel)", systemImage: "water.waves.and.arrow.up")
-						} else if waterLevel < location.comparedWaterLevel!{
+						} else if waterLevel < selectedLocation.comparedWaterLevel!{
 							Label("\(waterLevel)", systemImage: "water.waves.and.arrow.down")
 						} else {
 							Label("\(waterLevel)", systemImage: "water.waves")
@@ -61,16 +61,16 @@ struct DetailView: View {
 		.foregroundStyle(.black)
 		.background(.cyan)
 		.onAppear() {
-			LocationManager.shared.fetchOldWaterLevel(location: location)
-			LocationManager.shared.fetchWaterLevel(location: location)
+			LocationManager.shared.fetchOldWaterLevel(location: selectedLocation)
+			LocationManager.shared.fetchWaterLevel(location: selectedLocation)
 		}
 		.onReceive(timer) { _ in
-			LocationManager.shared.fetchWaterLevel(location: location)
+			LocationManager.shared.fetchWaterLevel(location: selectedLocation)
 		}
 	}
 		
 }
 
 #Preview {
-	DetailView(location: Location(name: "Cape May, NJ", id: LocationManager.shared.all["Cape May, NJ"] ?? "None Found"))
+	DetailView(selectedLocation: Location(name: "Cape May, NJ", id: LocationManager.shared.all["Cape May, NJ"] ?? "None Found"))
 }
