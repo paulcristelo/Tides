@@ -298,8 +298,6 @@ class LocationManager {
 	}
 	
 	func fetchOldWaterLevel(location: Location) {
-		let date = Date()
-		print(date)
 		let urlString = "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?&end_date=20231005&range=24&station=\(location.id)&product=one_minute_water_level&datum=MSL&time_zone=lst_ldt&units=english&format=json"
 
 		guard let url = URL(string: urlString) else {

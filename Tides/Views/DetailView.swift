@@ -28,7 +28,7 @@ struct DetailView: View {
 			.frame(width: UIScreen.main.bounds.width)
 			.chartYAxis {
 				var yAxisValues: [Double] {
-					stride(from: -10.0, through: 10.0, by: 1).map { $0 }
+					stride(from: -5.0, through: 5.0, by: 1).map { $0 }
 				}
 				AxisMarks(values: yAxisValues)
 			}

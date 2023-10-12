@@ -11,21 +11,25 @@ struct AddLocationView: View {
 	@Binding var newLocation: Location?
 	@Binding var locations: [String]
     var body: some View {
-		ScrollView {
-			ForEach(LocationManager.shared.sortedLocations, id: \.self) { location in
-				Button(action: {
-					if let id = LocationManager.shared.all[location] {
-						newLocation = Location(name: location, id: id)
-						locations.append(newLocation!.name)
-						presentationMode.wrappedValue.dismiss()
+		
+		NavigationView {
+			ScrollView {
+				ForEach(LocationManager.shared.sortedLocations, id: \.self) { location in
+					Button(action: {
+						if let id = LocationManager.shared.all[location] {
+							newLocation = Location(name: location, id: id)
+							locations.append(newLocation!.name)
+							presentationMode.wrappedValue.dismiss()
+						}
+					}) {
+						Text(location)
 					}
-				}) {
-					Text(location)
 				}
+				Spacer()
 			}
-			
 		}
 		.navigationTitle("Add Location")
+		
 		
     }
 	@Environment(\.presentationMode) var presentationMode

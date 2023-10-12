@@ -19,10 +19,22 @@ enum activeSheet: Identifiable {
 }
 
 
-
 struct ContentView: View {
 	
-	@State private var locations: [String]
+	@State private var locations: [String] {
+		didSet {
+			UserDefaults.standard.set(locations, forKey: "SavedLocations")
+		}
+	}
+		
+	init() {
+		if let savedLocations = UserDefaults.standard.array(forKey: "SavedLocations") as? [String] {
+			_locations = State(initialValue: savedLocations)
+		} else {
+			_locations = State(initialValue: [])
+		}
+	}
+	
 	@State private var selectedLocation: Location? = nil
 	@State private var newLocation: Location? = nil
 	@State private var activeSheet: activeSheet? = nil
@@ -40,6 +52,10 @@ struct ContentView: View {
 		
 		NavigationStack {
 			VStack {
+				if locations.isEmpty {
+					Text("No locations added yet")
+						.padding()
+				}
 				ForEach(locations, id: \.self) { location in
 					if let id = LocationManager.shared.all[location] {
 						Button(action: {
@@ -67,6 +83,8 @@ struct ContentView: View {
 					}
 				}
 			}
+			.navigationTitle("Locations")
+			.navigationBarTitleDisplayMode(.inline)
 			
 		}
 	}
