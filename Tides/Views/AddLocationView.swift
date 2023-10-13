@@ -33,6 +33,7 @@ struct AddLocationView: View {
 }
 
 struct AddLocationView_Previews: PreviewProvider {
+
 	@State static private var previewLocations: [String] = []
 
 	static var previews: some View {

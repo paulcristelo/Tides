@@ -42,10 +42,10 @@ struct CardView: View {
 		.foregroundColor(.black)
 		.background(.cyan)
 		.onReceive(timer) { _ in
-			LocationManager.shared.fetchWaterLevel(location: location)
+			location.fetchWaterLevel()
 		}
 		.onAppear() {
-			LocationManager.shared.fetchWaterLevel(location: location)
+			location.fetchWaterLevel()
 		}
 	}
 }

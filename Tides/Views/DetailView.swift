@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct DetailView: View {
-    @ObservedObject var selectedLocation: Location
+	@ObservedObject var selectedLocation: Location
 	@State private var timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
 	var body: some View {
 		VStack(alignment: .leading) {
@@ -20,7 +20,7 @@ struct DetailView: View {
 			Spacer()
 			Chart(selectedLocation.oldWaterLevels) {
 				LineMark(
-					x: .value("Time", "\($0.t)"),
+					x: .value("Time", "\(convertDateString(input: $0.t) ?? "Error")"),
 					y: .value("Water Level", Double($0.v) ?? 0)
 				)
 			}
@@ -61,11 +61,11 @@ struct DetailView: View {
 		.foregroundStyle(.black)
 		.background(.cyan)
 		.onAppear() {
-			LocationManager.shared.fetchOldWaterLevel(location: selectedLocation)
-			LocationManager.shared.fetchWaterLevel(location: selectedLocation)
+			selectedLocation.fetchOldWaterLevel()
+			selectedLocation.fetchWaterLevel()
 		}
 		.onReceive(timer) { _ in
-			LocationManager.shared.fetchWaterLevel(location: selectedLocation)
+			selectedLocation.fetchWaterLevel()
 		}
 	}
 		

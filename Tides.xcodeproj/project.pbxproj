@@ -10,8 +10,8 @@
 		F25FA1032AC6145D003C5D70 /* PredictionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25FA1022AC6145D003C5D70 /* PredictionsResponse.swift */; };
 		F25FA1042AC6145D003C5D70 /* PredictionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25FA1022AC6145D003C5D70 /* PredictionsResponse.swift */; };
 		F272ED102AD35D2E003B6DBA /* AddLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F272ED0F2AD35D2E003B6DBA /* AddLocationView.swift */; };
-		F272ED122AD7B03A003B6DBA /* addLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F272ED112AD7B03A003B6DBA /* addLocation.swift */; };
-		F272ED132AD7B03A003B6DBA /* addLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F272ED112AD7B03A003B6DBA /* addLocation.swift */; };
+		F272ED122AD7B03A003B6DBA /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F272ED112AD7B03A003B6DBA /* functions.swift */; };
+		F272ED132AD7B03A003B6DBA /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F272ED112AD7B03A003B6DBA /* functions.swift */; };
 		F283226C2ABF63FB005FB3FC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F283226B2ABF63FB005FB3FC /* DetailView.swift */; };
 		F2E0C8612ABC01DA007DE47C /* TidesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0C8602ABC01DA007DE47C /* TidesApp.swift */; };
 		F2E0C8632ABC01DA007DE47C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0C8622ABC01DA007DE47C /* ContentView.swift */; };
@@ -58,7 +58,7 @@
 /* Begin PBXFileReference section */
 		F25FA1022AC6145D003C5D70 /* PredictionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionsResponse.swift; sourceTree = "<group>"; };
 		F272ED0F2AD35D2E003B6DBA /* AddLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationView.swift; sourceTree = "<group>"; };
-		F272ED112AD7B03A003B6DBA /* addLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addLocation.swift; sourceTree = "<group>"; };
+		F272ED112AD7B03A003B6DBA /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
 		F283226B2ABF63FB005FB3FC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F2E0C85D2ABC01DA007DE47C /* Tides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E0C8602ABC01DA007DE47C /* TidesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidesApp.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		F2E0C8542ABC01DA007DE47C = {
 			isa = PBXGroup;
 			children = (
-				F272ED112AD7B03A003B6DBA /* addLocation.swift */,
+				F272ED112AD7B03A003B6DBA /* functions.swift */,
 				F25FA1022AC6145D003C5D70 /* PredictionsResponse.swift */,
 				F2E0C8922ABC1C79007DE47C /* Location.swift */,
 				F2E0C88B2ABC09D1007DE47C /* WaterLevelResponse.swift */,
@@ -268,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F272ED122AD7B03A003B6DBA /* addLocation.swift in Sources */,
+				F272ED122AD7B03A003B6DBA /* functions.swift in Sources */,
 				F25FA1032AC6145D003C5D70 /* PredictionsResponse.swift in Sources */,
 				F2E0C8632ABC01DA007DE47C /* ContentView.swift in Sources */,
 				F2E0C88C2ABC09D1007DE47C /* WaterLevelResponse.swift in Sources */,
@@ -286,7 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F25FA1042AC6145D003C5D70 /* PredictionsResponse.swift in Sources */,
-				F272ED132AD7B03A003B6DBA /* addLocation.swift in Sources */,
+				F272ED132AD7B03A003B6DBA /* functions.swift in Sources */,
 				F2E0C8752ABC01DC007DE47C /* ContentView.swift in Sources */,
 				F2E0C88D2ABC09D1007DE47C /* WaterLevelResponse.swift in Sources */,
 				F2E0C8892ABC0253007DE47C /* LocationManager.swift in Sources */,
